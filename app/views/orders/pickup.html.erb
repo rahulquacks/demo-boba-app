@@ -1,0 +1,15 @@
+<h1>Pickup!</h1>
+
+<ul>
+  <% @orders.each do |order| %>
+    <li>
+      <a href="<%= order_path(order) %>">
+        <%= order.order_id %>
+      </a>
+
+      <%= order.status %>
+    </li>
+  <% end %>
+</ul>
+
+<a href ="<%= root_path %>">Back to Main </a>

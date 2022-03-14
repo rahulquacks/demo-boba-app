@@ -1,0 +1,50 @@
+<div class="container">
+  <h3>Place your Boba Order Here!</h3>
+  <%= form_with model: @order do |form| %>
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-3">
+          <%= form.label :first_name %><br>
+          <%= form.text_field :first_name %>
+          <% @order.errors.full_messages_for(:first_name).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :last_name %><br>
+          <%= form.text_field :last_name %>
+          <% @order.errors.full_messages_for(:last_name).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :drink %><br>
+          <%= form.text_field :drink %>
+          <% @order.errors.full_messages_for(:drink).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :phone_number %><br>
+          <%= form.text_field :phone_number %>
+          <% @order.errors.full_messages_for(:phone_number).each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+        <div class="mb-3">
+          <%= form.label :special_instructions %><br>
+          <%= form.text_area :special_instructions %>
+          <% @order.errors.full_messages_for(:body).each do |message| %>
+            div><%= message %></div>
+          <% end %>
+          </div>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+    </div>
+
+  <% end %>
+</div>
+
+
