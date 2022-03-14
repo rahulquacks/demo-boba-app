@@ -43,6 +43,8 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.status = "COMPLETED"
     if @order.save
+      ActionCable.server.broadcast "order_channel",
+                                   content: @order.order_id
       redirect_to @order
     else
       redirect_to @order, notice: "Status updated to #{@order.status}"
