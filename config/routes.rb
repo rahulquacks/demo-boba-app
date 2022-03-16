@@ -11,4 +11,11 @@ Rails.application.routes.draw do
   get "/kitchen", to: "orders#kitchen"
   get "/pickup", to: "orders#pickup"
   get "/station", to: "orders#new"
+
+  # API routes
+  namespace :api do
+    namespace :v1 do
+      resources :orders, only: [:create, :index]
+    end
+  end
 end

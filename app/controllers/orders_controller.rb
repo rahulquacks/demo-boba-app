@@ -21,6 +21,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    logger.info("order params =>" + order_params.to_s)
     @order.status = "IN_PROGRESS"
 
     if @order.save
