@@ -13,6 +13,11 @@ class Api::V1::OrdersController < Api::V1::BaseController
     end
   end
 
+  def archive_all
+    MarkOrderArchivedJob.set(wait: 30.seconds).perform_later
+    render json: {"message" => "orders will be marked archived"}, status: "200 OK"
+  end
+
   private
   def order_params
     params.require(:order).permit(:first_name, :last_name, :drink, :phone_number, :special_instructions)

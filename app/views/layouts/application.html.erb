@@ -36,10 +36,8 @@
             <a class="nav-link" href="<%= rooms_path %>" tabindex="-1" aria-disabled="true">Chat Room</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+
+          <%= button_to "Close Kitchen", api_v1_archive_path_url, :class => "btn btn-outline-warning", method: :patch %>
       </div>
     </div>
   </nav>
